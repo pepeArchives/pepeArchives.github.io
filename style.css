@@ -6,7 +6,7 @@
 :root {
 	--background: 		#fff;
 	--foreground: 		#000;
-	--foreground-alt: 	#bdbdbd;
+	--foreground-alt: 	#888;
 }
 
 * {
@@ -98,13 +98,18 @@ main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 50px;
 	padding: 50px;
 }
 
 h1 {
-	margin-bottom: 50px;
 	text-align: center;
 	font-size: 3em;
+}
+
+h2 {
+	font-size: 1.2em;
+	color: var(--foreground-alt);
 }
 
 #images {
@@ -144,7 +149,6 @@ h1 {
 }
 
 #image-container h1 {
-	margin: 0;
 	color: var(--background);
 }
 

@@ -3,8 +3,8 @@ const imageFullView = document.querySelector("#image-full-view")
 const imageContainer = document.querySelector("#image-container")
 const imageContainerHeading = document.querySelector("#image-container h1")
 const imageContainerImage = document.querySelector("#image-container img")
-const imageContainerdownload = document.querySelector("#image-container a")
-const images = document.querySelectorAll("main img")
+const imageContainerDownload = document.querySelector("#image-container a")
+const images = document.querySelectorAll("#images img")
 
 images.forEach((image) => {
 	image.onclick = (event) => {
@@ -17,13 +17,13 @@ images.forEach((image) => {
 	}
 })
 
-imageContainerdownload.onclick = () => {
-	let src = imageContainerdownload.parentElement.children[1].getAttribute("src")
-	imageContainerdownload.setAttribute("href", src)
+imageContainerDownload.onclick = () => {
+	let src = imageContainerDownload.parentElement.children[1].getAttribute("src")
+	imageContainerDownload.setAttribute("href", src)
 }
 
 document.body.onclick = (event) => {
-	if (getComputedStyle(imageFullView).display === "flex" && ![imageContainerHeading, imageContainerImage, imageContainerdownload].includes(event.target)) {
+	if (getComputedStyle(imageFullView).display === "flex" && ![imageContainerHeading, imageContainerImage, imageContainerDownload].includes(event.target)) {
 		imageFullView.style.display = "none"
 	}
 }
@@ -52,6 +52,7 @@ searchCross.onclick = () => {
 	searchInput.focus()
 }
 
+const main = document.querySelector("main")
 const searchParam = window.location.href.split("?search=")[1]
 
 if (searchParam !== undefined) {
@@ -67,9 +68,12 @@ if (searchParam !== undefined) {
 		}
 	})
 
-	if (counter === 1) {
+	if (counter === 0) {
+		document.querySelector("#images").remove()
+		main.insertAdjacentHTML("afterbegin", "<h2>No search results :(</h2>")
+	} else if (counter === 1) {
 		s = ""
 	}
 
-	document.querySelector("main").insertAdjacentHTML("afterbegin", `<h1>${counter} search result${s} for "${searchParam}"</h1>`)
+	main.insertAdjacentHTML("afterbegin", `<h1>${counter} search result${s} for "${searchParam}"</h1>`)
 }
