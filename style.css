@@ -4,9 +4,7 @@
 }
 
 :root {
-	--background: 		#fff;
-	--foreground: 		#000;
-	--foreground-alt: 	#888;
+	--foreground-alt: 	#bdbdbd;
 }
 
 * {
@@ -72,6 +70,7 @@ header {
 	border: var(--border-width) solid var(--foreground-alt);
 	border-radius: 50px;
 	outline: none;
+	background-color: var(--background);
 }
 
 #search-field svg {
@@ -92,6 +91,11 @@ header {
 
 #search-field svg:last-of-type {
 	right: calc(var(--position) + var(--border-width));
+}
+
+#light-switch {
+	position: absolute;
+	right: 25px;
 }
 
 main {
@@ -149,7 +153,7 @@ h2 {
 }
 
 #image-container h1 {
-	color: var(--background);
+	color: var(--local-bg);
 }
 
 #image-container img {
@@ -167,12 +171,14 @@ h2 {
 	border-radius: 50px;
 	cursor: pointer;
 	font-size: var(--text-size);
-	background-color: var(--background);
+	color: var(--local-fg);
+	background-color: var(--local-bg);
 }
 
 #download svg {
 	width: var(--text-size);
 	height: var(--text-size);
+	fill: var(--local-fg);
 }
 
 #download:active, #download:active svg {
@@ -197,9 +203,8 @@ footer a {
 	gap: 5px;
 }
 
-footer a:hover {
+footer a:first-of-type:hover {
 	text-decoration: underline;
-	opacity: 0.6;
 }
 
 #iwf {
@@ -207,4 +212,8 @@ footer a:hover {
 	flex-wrap: wrap;
 	justify-content: center;
 	gap: 25px;
+}
+
+#iwf:hover {
+	opacity: 0.6;
 }
